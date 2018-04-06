@@ -1,5 +1,7 @@
 # 3. kodutöö – Chrome extension
 
+Töö Autor - Maritana Sampu
+
 Kodutööna peab looma Chrome extension'i selliselt, et nõuded oleksid täidetud. Soovi korral võib ka teha Firefox'ile.
 
 **Töö on soovitatav teha kahekesi!**
