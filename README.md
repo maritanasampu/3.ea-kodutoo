@@ -6,17 +6,11 @@ Kodutööna peab looma Chrome extension'i selliselt, et nõuded oleksid täidetu
 
 **Töö on soovitatav teha kahekesi!**
 
-## Nõuded
+Laienduse mõte on selles, et kasutaja saaks otsida parema hiire nupu vajutusega valitud teksti.
+Algselt on antud neli otsingmootorit, kasutaja saab ka ise juurde lisada.
 
-1. Kirjelda README.md failis, mida rakendus teeb. 
-1. Rakendus peab tegema külastatava veebilehe/veebirakenduse kas ilusamaks, mugavamaks või huvitamaks.
-1. Peab oleama piisavalt keerukas (midagi enemat kui tunnis tegmine)
-1. Ole loominguline, näiteks põnevad asjad millele saab brauser ligi, kuid nendega on keeruline toimetada.
-    - bluetooth, sh pulsivöö [dokumentatsioon](https://developers.google.com/web/updates/2015/07/interact-with-ble-devices-on-the-web)
-    - mikrofon [näide](https://www.talater.com/annyang/)
-    - webcam [näide](https://revealjs.herokuapp.com/#/0/1)
+Algne idee on võetud Google Chrome Sample Extension'ite seast: https://developer.chrome.com/extensions/samples#search:contextmenus "Context Menus Sample (with Event Page)".
+Samuti kasutasime ideena kursusekaaslase tööd: https://github.com/eesrakenduste-arendamine-2018k/3.ea-kodutoo/pull/1
 
-## Täiendav abimaterjal
 
-* Chrome extension API [JavaScript APIs](https://developer.chrome.com/extensions/api_index/)
-* Chrome extension'ite näited [Sample Extensions](https://developer.chrome.com/extensions/samples/)
+Extensioni tööd demonstreeriv video: https://youtu.be/oxdkD4nuaWQ
