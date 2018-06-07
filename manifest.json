@@ -1,0 +1,15 @@
+{
+  "name": "QuickSearch",
+  "description": "Otsib märgitud teksti kasutaja valitud otsingumootoris",
+  "version": "1.0",
+  "options_page": "popup.html",
+  "permissions": ["<all_urls>", "tabs", "background", "contextMenus", "storage", "activeTab"],
+  "background": {
+    "scripts": [ "urls.js", "background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
