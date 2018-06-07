@@ -1,72 +1,40 @@
+let currentSitesList;
+
 window.onload = function () {
   document.getElementById('addBtn').addEventListener('click', addURLstorage)
   showAllURLs()
-  // document.getElementById('removeBtn').addEventListener('click', removeURLstorage)
 }
 
 function addURLstorage () {
-  let newUrl = document.getElementById('url').value
-  saveURL(newUrl)
-}
-//
-// function removeURLstorage () {
-//   let newUrl = document.getElementById('removeURL').value
-//   deleteUrl(newUrl)
-// }
+  let name = document.getElementById('name').value
+  let url = document.getElementById('url').value
+  let newValue = { name: url };
 
-function saveURL (url) {
-  let arr = []
+  if (name !== "" && url !== "") {
+    currentSitesList[name] = url;
 
-  if (window.localStorage.length === 0) {
-    arr.push(url)
-    localStorage.setItem('arr', JSON.stringify(arr))
-  } else {
-    let stored = JSON.parse(localStorage.getItem('arr'))
-    stored.push(url)
-    localStorage.setItem('arr', JSON.stringify(stored))
+    chrome.storage.sync.set({'kSites': currentSitesList}, function() {
+      console.log('currentSitesList saved to storage');
+    });
   }
-  showAllURLs()
 }
-
-
-//
-// function deleteUrl (newUrl) {
-//   let stored = JSON.parse(localStorage.getItem('arr'))
-//   i = 0
-//
-//   if (document.getElementById('removeRadio1').checked == true) {
-//     for (i=0; i<stored.length; i++) {
-//       if (stored[i].tabs1 === newUrl) {
-//         stored.splice(i, 1)
-//         localStorage.setItem('arr',JSON.stringify(stored))
-//         stored = JSON.parse(localStorage.getItem('arr'))
-//         i = -1
-//       }
-//     }
-//   } else {
-//     for (i=0; i<stored.length; i++) {
-//       if (stored[i].tabs2 === newUrl) {
-//         stored.splice(i, 1)
-//         localStorage.setItem('arr',JSON.stringify(stored))
-//         stored = JSON.parse(localStorage.getItem('arr'))
-//         i = -1
-//       }
-//     }
-//   }
-//
-//   document.getElementById('removeURL').value = ''
-//   showAllURLs()
-// }
 
 function showAllURLs () {
   const results = document.getElementById('kSites');
-  let stored = JSON.parse(localStorage.getItem('arr'))
 
-  results.innerHTML = ''
+  chrome.storage.sync.get(['kSites'], function(list) {
+    currentSitesList = list.kSites;
 
-  if (stored !== null) {
-    for (let i=0; i<stored.length; i++) {
-      results.innerHTML += "<li>"+stored[i]+"</li>"
+    if (currentSitesList !== null) {
+      results.innerHTML = ''
+
+
+      for (let key of Object.keys(currentSitesList)) {
+        // console.log('key: ', key);
+        // console.log('value: ', list[key]);
+
+        results.innerHTML += "<li><strong>"+key+"</strong><div>"+currentSitesList[key]+"</div></li>"
+      }
     }
-  }
+  });
 }

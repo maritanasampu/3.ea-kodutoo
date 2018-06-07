@@ -13,18 +13,36 @@
         .list {
             margin-top: 40px;
         }
+        label {
+            display: inline-block;
+            width: 65px;
+        }
+        input {
+            width: 30%;
+        }
+        li,
+        form > div {
+            margin-bottom: 14px;
+        }
     </style>
 </head>
 <body>
     <form>
-        <h1>Lisa ükshaaval:</h1>
-        <label for="url">URL:</label>
-        <input id="url" type="text">
+        <h1>Lisa aadress</h1>
+        <div>
+            <label for="name" class="for">Nimetus:</label>
+            <input id="name" type="text">
+        </div>
+        <div>
+            <label for="url">URL:</label>
+            <input id="url" value="http://www." type="text">
+        </div>
+
         <button id="addBtn">Lisa</button>
     </form>
 
     <div class="list">
-        <h1>Valitud aadressid:</h1>
+        <h1>Aadressid</h1>
         <ul id="kSites"></ul>
     </div>
 </body>
